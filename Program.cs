@@ -21,7 +21,8 @@ var appOption = provider.GetRequiredService<IOptions<AppOptions>>().Value;
 
 var files = Directory.GetFiles(appOption.SrcFolder, "*.component.ts", SearchOption.AllDirectories);
 
-foreach (var file in files) {
+foreach (var file in files
+  .Where(f => f.Contains("entra-redirect.component.ts", StringComparison.InvariantCultureIgnoreCase) == false)) {
     var gen = provider.GetRequiredService<IStoriesGenerator>();
 
     gen.GenerateStories(file);

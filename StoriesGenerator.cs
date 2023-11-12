@@ -3,7 +3,7 @@
 using System.Text;
 using Microsoft.Extensions.Options;
 
-internal class StoriesGenerator : IStoriesGenerator
+public class StoriesGenerator : IStoriesGenerator
 {
     private AppOptions appOption;
 
